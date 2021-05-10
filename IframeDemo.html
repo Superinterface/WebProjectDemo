@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>Demo</title>
+</head>
+<body>
+    <div>
+        <form id="dtoForm" action="" target="target1" method="post" >
+            <span>名称: </span>
+            <input id="name" type="text" value="XSD1981">
+            <span>密码: </span>
+            <input id="pwd" type="text" value="123456">
+            <!-- <span>时间: </span> -->
+            <!-- <input id="leftDate" type="date"> -->
+            <!-- <span>&nbsp;&nbsp;</span> -->
+            <!-- <input id="rightDate" type="date"> -->
+            <input type="button" value="查询" onclick="execute('select')" >
+            <input type="button" value="下载PDF" onclick="execute('downloadPDF')" >
+        </form>
+    <!-- src="http://localhost:8082/api/user/login" -->
+        <iframe id="myframe" name="target1"  style="width: 600px;height: 600px; border-style: solid 1px red;" >
+        </iframe>
+    </div>
+</body>
+<script>
+    function  execute(type){
+        var myframe=document.getElementById("myframe");
+        debugger;
+        //var framez=(myframe.contentWindow || myframe.contentDocument);
+        //if (framez.document)framez=framez.document;
+        if(type == 'select'){//"http://localhost:8082/api/user/login"+""
+       // myframe.src = "http://www.baidu.com";
+       $('#dtoForm').attr('action', 'http://localhost:8082/api/user/login');
+        $('#dtoForm').submit();
+        }else if(type == 'downloadPDF'){
+           // myframe.src = "http://superinterface.xyz";
+           $('#dtoForm').attr('action', 'http://superinterface.xyz');
+            $('#dtoForm').submit();
+        }
+    }
+</script>
+</html>
